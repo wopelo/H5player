@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>H5 Player</title>
+	<link rel="icon" type="image/png" href="./img/player.png">
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+	<link rel="stylesheet" type="text/css" href="./css/iconfont.css">
+</head>
+<body>
+	<div id="root">
+		<!-- 设置onselectstart使其中的文字不能被鼠标选中 -->
+		<div id="video-player" onselectstart="return false">
+			<!-- 包裹除播放列表的大容器 -->
+			<div id="other-container">
+				<!-- 在移动端显示音量大小的div -->
+				<div id="mobile-volume" class="opacity">
+					<span class="iconfont icon-yinliang"></span>
+					<span id="mobile-volume-size">100%</span>
+				</div>
+				<div id="player-container">
+					<!-- webkit-playsinline在ios中关闭自动全屏
+					object-fit:fill使视频充满video容器大小 -->
+					<video webkit-playsinline id="v-player" poster="http://p8hsehkmu.bkt.clouddn.com/%E5%91%8A%E7%99%BD%E6%B0%94%E7%90%83.jpg">
+						<source src="http://p8hsehkmu.bkt.clouddn.com/%E5%91%8A%E7%99%BD%E6%B0%94%E7%90%83.mp4" type="video/mp4" id="source">
+						<p>啊欧~设备不支持</p>
+					</video>
+					<!-- 播放器中心图标 -->
+					<span class="iconfont icon-play inline" id="icon-play"></span>
+					<span class="iconfont icon-chongbo-m none" id="icon-chongbo"></span>
+				</div>
+				<!-- 控制条 -->
+				<div id="player-controls">
+					<!-- 最左侧的播放/暂停图标 -->
+					<div class="control-0">
+						<span class="iconfont icon-play inline" id="assist-play"></span>
+						<span class="iconfont icon-zanting none" id="assist-stop"></span>
+						<span class="iconfont icon-chongbo-m none" id="assist-chongbo"></span>
+					</div>
+					<!-- 播放进度条 -->
+					<div class="control-1">
+						<div id="player-progressBar">
+							<div id="player-timeBar"></div>
+							<div id="time-ball"></div>
+						</div>
+					</div>
+					<!-- 视频当前播放时间与视频总长 -->
+					<div class="control-2">
+						<span id="player-current">00:00</span>
+						<span>/</span>
+						<span id="player-duration">00:00</span>
+					</div>
+					<!-- 音量控制 -->
+					<div class="control-3" id="volume-control">
+						<span class="iconfont icon-yinliang" id="player-volume"></span>
+						<div id="volume-size">
+							<!-- 音量大小文字 -->
+							<div id="size-num">100%</div>
+							<!-- 音量控制条 -->
+							<div id="choose-size">
+								<div id="size-ball"></div>
+								<div id="now-size"></div>
+							</div>
+						</div>
+					</div>
+					<!-- 控制全屏 -->
+					<div class="control-3">
+						<span class="iconfont icon-msnui-fullscreen inline" id="player-fill"></span>
+						<span class="iconfont icon-tuichuquanping-copy none" id="player-copy"></span>
+					</div>
+				</div>
+			</div>
+			<!-- 播放列表 -->
+			<div id="play-list"></div>
+		</div>
+	</div>
+
+	<!-- 判断设备，加载对应的js -->
+	<script type="text/javascript" src="./js/initPlayer.js"></script>
+</body>
+</html>
